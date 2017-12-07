@@ -77,9 +77,9 @@ def send_mail(files, type):
     import smtplib
     from email.MIMEMultipart import MIMEMultipart
     from email.MIMEText import MIMEText
-    gmailUser = 'email@gmail.com'
-    gmailPassword = 'password'
-    recipient = 'email@outlook.com'
+    gmailUser = 'email@gmail.com' #Enter Sender Email Here 
+    gmailPassword = 'password' #Enter Sender Email Password Here
+    recipient = 'email@outlook.com' #Enter Recipients Here
     msg = MIMEMultipart()
     msg['From'] = gmailUser
     msg['To'] = recipient
