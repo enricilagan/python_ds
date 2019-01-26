@@ -1,11 +1,11 @@
 ##################################################################################
-##########          Stock Gains and Losses email sender - EJI           ##########
+#                  Stock Gains and Losses email sender - EJI                     #
 ##################################################################################
-## Version                                                                      ##
-## 1.0 - Primary Version, Stock Gain                                            ##
-## 1.1 - Created Loss Version, Generates 2 emails                               ##
-## 1.2 - Included HTML generation to email function                             ##
-## 1.3 - Combined Loss and Gain into one DataFrame for simplicity               ##
+#  Version                                                                       #
+#  1.0 - Primary Version, Stock Gain                                             #
+#  1.1 - Created Loss Version, Generates 2 emails                                #
+#  1.2 - Included HTML generation to email function                              #
+#  1.3 - Combined Loss and Gain into one DataFrame for simplicity                #
 ##################################################################################
 
 ## import packages
