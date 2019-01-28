@@ -10,3 +10,6 @@ Altered some of the information, including the twitter user name used and the nu
 
 ## Thanksgiving dataset
 Using the dataset to get the most probable menu for the 5 items based on US Region and Income of the household
+
+## Scrabble
+Get score based on scrabble letter scores. Scores are calculated as [player's word/best possible word]
