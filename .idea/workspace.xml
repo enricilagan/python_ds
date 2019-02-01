@@ -1,11 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="af3afc1b-b1e9-44e0-a430-378227801a7a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/future_sales.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sandbox.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stocks_.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/update.html" afterDir="false" />
+    <list default="true" id="af3afc1b-b1e9-44e0-a430-378227801a7a" name="Default Changelist" comment="Adding new files, excluding ones with sensitive data">
+      <change afterPath="$PROJECT_DIR$/programs/program2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/programs/scrabble.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/programs/thanksgiving.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webscraping/stocks_.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webscraping/stockupdate.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/python_DS.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/python_DS.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account/stockupdate.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/program2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scrabble.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stocks_.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stockupdate.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stoplight.py" beforeDir="false" afterPath="$PROJECT_DIR$/programs/stoplight.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thanksgiving.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/titanic_new.ipynb" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,34 +27,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/stockupdate.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-263">
-              <caret line="21" column="29" lean-forward="true" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
-              <folding>
-                <element signature="e#787#806#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/requirements.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/stocks_.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" selection-start-line="7" selection-end-line="7" />
-              <folding>
-                <element signature="e#0#19#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="135">
+              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
             </state>
           </provider>
         </entry>
@@ -59,6 +46,7 @@
       <list>
         <option value="$PROJECT_DIR$/rps/classes_rps.py" />
         <option value="$PROJECT_DIR$/stockupdate.py" />
+        <option value="$PROJECT_DIR$/stocks_.py" />
         <option value="$PROJECT_DIR$/requirements.txt" />
       </list>
     </option>
@@ -84,11 +72,6 @@
               <item name="python_DS" type="b2602c69:ProjectViewProjectNode" />
               <item name="python_DS" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="python_DS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="python_DS" type="462c0819:PsiDirectoryNode" />
-              <item name="account" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -104,6 +87,7 @@
       <recent name="$PROJECT_DIR$/account" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/programs" />
       <recent name="$PROJECT_DIR$/data" />
     </key>
   </component>
@@ -226,7 +210,14 @@
       <option name="project" value="LOCAL" />
       <updated>1549048035276</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Adding new files, excluding ones with sensitive data">
+      <created>1549048177072</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1549048177072</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -284,16 +275,6 @@
     <entry file="file://$PROJECT_DIR$/web_scrape.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/stocks_.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sandbox.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -311,20 +292,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/stockupdate.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-263">
-          <caret line="21" column="29" lean-forward="true" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
+        <state relative-caret-position="915">
+          <caret line="61" lean-forward="true" selection-start-line="61" selection-end-line="61" />
           <folding>
             <element signature="e#787#806#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stocks_.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
         </state>
       </provider>
     </entry>
