@@ -1,13 +1,16 @@
 import datetime
-from programs.config import logging, api, lessons
+from config import logging, api, lessons
 
 T_ZONE = datetime.timezone(datetime.timedelta(hours=8))
 now = datetime.datetime.now(T_ZONE)
 start = datetime.datetime(2018, 12, 20, tzinfo=T_ZONE)  # = PyBites 100 days :)
 
-CURRENT_CHALLENGE_DAY = (now - start - datetime.timedelta(days=1)).days
+# gets the current day, make sure that you log your progress before 12 midnight.
+CURRENT_CHALLENGE_DAY = (now - start).days
+# Updated twitter length to match new twitter max length
 TWEET_LEN = 280
 
+# Used for printing lesson number and lesson part.
 if CURRENT_CHALLENGE_DAY % 3 == 1:
     d, part = '1', 'lecture'
 elif CURRENT_CHALLENGE_DAY % 3 == 2:
@@ -19,6 +22,9 @@ s = int((CURRENT_CHALLENGE_DAY+2)/3)
 
 
 def main():
+    """
+    Main program, allows user to input progress as comment and tweet the progress,
+    """
     tweet = ''
     a = 'Not Done'
     while a == 'Not Done':
@@ -32,13 +38,16 @@ def main():
 
     if not test:
         logging.info('Test: tweet to send: {}'.format(tweet))
-        print('Tweet logged in 100day_tweet_bot.log')
+        print('Tweet logged in 100day_autotweet.log')
     else:
         tweet_status(tweet)
         print('Tweet posted!')
 
 
 def create_tweet(comment):
+    """
+
+    """
     ht1, ht2 = '#100DaysOfCode', '#Python'
     acc1, acc2 = '@pybites', '@talkpython'
     title = lessons[s]

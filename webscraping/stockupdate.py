@@ -6,6 +6,7 @@
 # 1.1 - Created Loss Version, Generates 2 emails                                 #
 # 1.2 - Included HTML generation to email function                               #
 # 1.3 - Combined Loss and Gain into one DataFrame for simplicity                 #
+# 1.4 - Added Tweet using tweepy, will tweet the top 5 gains and losses          #
 ##################################################################################
 
 # Import Packages
@@ -13,20 +14,17 @@
 import pandas as pd
 from bs4 import BeautifulSoup
 import requests
-from datetime import datetime
 
-import smtplib, ssl
+import smtplib
+import ssl
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
-
-from email_creds_url import *
-
+# imported os from stocks_config
+from stocks_config import *
 
 # get the URL using pesobility site now to scrape the data
-print(f'{datetime.now().strftime("%Y-%m-%d %H:%M:%S")} Getting URL for Stocks')
+print(f'{t_stamp} Getting URL for Stocks')
 
-# Will be used as timestamp
-today = datetime.now().strftime("[%b/%d/%Y] %I:%M%p")
 
 # Define function to Create DataFrame for the data currently in the stock market
 # Combine Gain and Losses in a Single DataFrame (Ver1.3)
@@ -34,10 +32,10 @@ today = datetime.now().strftime("[%b/%d/%Y] %I:%M%p")
 
 # function to scrape the Stock Update table in PESOBILITY
 def scrape_web(url, type_):
-	page = requests.get(url)
-	html = page.text
-	soup = BeautifulSoup(html, "html.parser")
-	print(f'{datetime.now().strftime("%Y-%m-%d %H:%M:%S")} Scraping {type_} data from Pesobility')
+	r = requests.get(url)
+	resp = r.text
+	soup = BeautifulSoup(resp, "html.parser")
+	print(f'{t_stamp} Scraping {type_} data from Pesobility')
 	return soup.table
 
 
@@ -47,7 +45,7 @@ def create_df(table_bs):
 	p = [x.findAll('td')[2].find(text=True) for x in table_bs.findAll("tr") if len(x.findAll('td')) == 4]
 	m = [x.findAll('td')[3].find(text=True) for x in table_bs.findAll("tr") if len(x.findAll('td')) == 4]
 	df = pd.DataFrame({'Stock': s, 'Current Price': p, '% Movement': m})
-	print(f'{datetime.now().strftime("%Y-%m-%d %H:%M:%S")} Creating dataFrame')
+	print(f'{t_stamp} Creating dataFrame')
 	return df
 
 
@@ -60,36 +58,37 @@ def stock_df(url_gain, url_loss):
 	return data1, data2
 
 
+def create_tweet(df, gain=True):
+	t = f"[TEST]: Today's Top 5 {'Gainers' if gain else 'Losers'}\n| Stock | C.Price  |  %Move  |"
+	for a in df[0:5].values:
+		t += f'\n| {a[0].center(5)} | {a[1].center(8)} | {a[2].center(7)} |'
+	return t
+
+
+def send_tweet(tweet, gain=True):
+	try:
+		api.update_status(tweet)
+		logging.info(f"Posted Top {'Gainers' if gain else 'Losers'} to Twitter")
+	except Exception as exc:
+		logging.error(f'Error posting to Twitter: {exc}')
+
+
 # Send email function
-def send_mail():
+def send_mail(df_gain, df_loss):
+	"""
+	composes email to be sent.
+	"""
 	# Login user and recipients
-	gmail_user = email_user
-	gmail_password = email_pw
-	recipient = email_r
+	gmail_user = EMAIL_USER
+	gmail_password = EMAIL_PW
+	recipient = EMAIL_REC
 	msg = MIMEMultipart()
 	msg['From'] = gmail_user
 	msg['To'] = recipient
-	msg['Subject'] = "PSE Stock Update as of " + today
-	# Create gain and loss data frames (Ver1.2)
-	df_gain, df_loss = stock_df(gain_url, loss_url)
-	# Assemble email content (Header, Body and Footer)
-	head = '''
-	<html>
-		<head>
-		</head>
-		<body>
-		<h2>TOP 15 PSE Gainers as of ''' + today
-	loss = '''
-	<h2>TOP 15 PSE Losers as of ''' + today
-	footer = '''	
-	"The only thing that we need to count in life are our blessings."
-	</body>
-	</html>
-	'''
-	er = '''</h1>
+	msg['Subject'] = f"PSE Stock Update as of {today}"
 
-	'''
-	print(f'{datetime.now().strftime("%Y-%m-%d %H:%M:%S")} Assembling email content')
+	# Create gain and loss data frames (Ver1.2)
+	print(f'{t_stamp} Assembling email content')
 	with open('update.html', 'w') as f:
 		f.write(head + er)
 		f.write(df_gain[0:15].to_html(classes='df'))
@@ -102,31 +101,35 @@ def send_mail():
 
 	msg.attach(attachment)
 
-	"""
-		with smtplib.SMTP('smtp.gmail.com', 587) as mail_server:
-		mail_server.ehlo()
-		mail_server.starttls()
-		mail_server.ehlo()
-		mail_server.login(gmail_user, gmail_password)
-		mail_server.sendmail(gmail_user, recipient, msg.as_string())
-		print(f'{datetime.now().strftime("%Y-%m-%d %H:%M:%S")} -  Sending Email')
-	"""
-# Create secure connection with server and send email
+	# Create secure connection with server and send email
 	context = ssl.create_default_context()
 	with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as server:
 		server.login(gmail_user, gmail_password)
 		server.sendmail(
 			gmail_user, recipient, msg.as_string()
 		)
-		print(f'{datetime.now().strftime("%Y-%m-%d %H:%M:%S")} Sending Email, SSL')
+		print(f'{t_stamp} Sending Email, SSL')
+
+	# delete file Update.html
+	os.remove("update.html")
+	print("Removing Update.html")
 
 
-# if __name__ == '__main__':
-# 	send_mail()
+def main():
+	test = input('[t]est and log or [s]end mail and tweet: ')
+	df_gain, df_loss = stock_df(GAIN_URL, LOSS_URL)
+	gain_tweet = create_tweet(df_gain)
+	loss_tweet = create_tweet(df_loss, False)
+	if test == 't':
+		logging.info(f'Test: tweet to send Gainers:\n {gain_tweet}, {len(gain_tweet)}')
+		logging.info(f'Test: tweet to send Losers\n {loss_tweet}, {len(loss_tweet)}')
+		print('Tweet logged in stock_update.log')
+	else:
+		send_tweet(gain_tweet)
+		send_tweet(loss_tweet, False)
+		send_mail(df_gain, df_loss)
+		print('Tweet posted!')
 
 
-page = requests.get(gain_url)
-html = page.text
-soup = BeautifulSoup(html, "html.parser")
-
-print(soup.table.find_all('td')[1].find(text=True))
+if __name__ == '__main__':
+	main()
