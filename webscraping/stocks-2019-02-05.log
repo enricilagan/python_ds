@@ -1,0 +1,30 @@
+[2019-02-05 16:55:30.117806] NOTICE: Startup: Logging is initialized, level 9, mode file mode: stocks.log
+[2019-02-05 16:55:30.118059] TRACE: Stock: Starting Stock Data Acquisition.
+[2019-02-05 16:55:30.118131] TRACE: Stock: Choosing manual entry for data options.
+[2019-02-05 16:55:53.615306] TRACE: Stock: Creating Data Frames to be saved as CSV, page 1
+[2019-02-05 16:55:55.289141] TRACE: Stock: Creating Data Frames to be saved as CSV, page 2
+[2019-02-05 16:55:57.401147] TRACE: Stock: Creating Data Frames to be saved as CSV, page 3
+[2019-02-05 16:55:59.890367] TRACE: Stock: Creating Data Frames to be saved as CSV, page 4
+[2019-02-05 16:56:01.248223] TRACE: Stock: Creating Data Frames to be saved as CSV, page 5
+[2019-02-05 16:56:02.884135] TRACE: Stock: Creating Data Frames to be saved as CSV, page 6
+[2019-02-05 16:56:02.885124] TRACE: Stock: Done with looping
+[2019-02-05 16:56:02.887852] TRACE: Stock: Data copied to file
+[2019-02-05 17:02:13.482760] NOTICE: Startup: Logging is initialized, level 9, mode file mode: stocks.log
+[2019-02-05 17:02:13.482949] TRACE: Stock: Starting Stock Data Acquisition.
+[2019-02-05 17:02:13.483017] TRACE: Stock: Inputting parameters for data to be scraped.
+[2019-02-05 17:02:35.297470] TRACE: Stock: Checking for historical stocks of PAL, from 02/05/17 to 02/04/19.
+[2019-02-05 17:02:35.297708] TRACE: Stock: Checking if file exists.
+[2019-02-05 17:02:35.298143] TRACE: Stock: Removing existing file!
+[2019-02-05 17:02:35.298343] TRACE: Stock: Creating URL from parameters passed.
+[2019-02-05 17:02:37.478850] TRACE: Stock: Creating Data Frames to be saved as CSV, page 1
+[2019-02-05 17:02:39.163699] TRACE: Stock: Creating Data Frames to be saved as CSV, page 2
+[2019-02-05 17:02:40.962397] TRACE: Stock: Creating Data Frames to be saved as CSV, page 3
+[2019-02-05 17:02:42.808583] TRACE: Stock: Creating Data Frames to be saved as CSV, page 4
+[2019-02-05 17:02:45.064084] TRACE: Stock: Creating Data Frames to be saved as CSV, page 5
+[2019-02-05 17:02:46.905752] TRACE: Stock: Creating Data Frames to be saved as CSV, page 6
+[2019-02-05 17:02:48.618608] TRACE: Stock: Creating Data Frames to be saved as CSV, page 7
+[2019-02-05 17:02:50.366195] TRACE: Stock: Creating Data Frames to be saved as CSV, page 8
+[2019-02-05 17:02:52.008048] TRACE: Stock: Creating Data Frames to be saved as CSV, page 9
+[2019-02-05 17:02:53.616053] TRACE: Stock: Creating Data Frames to be saved as CSV, page 10
+[2019-02-05 17:02:53.617040] TRACE: Stock: Done with looping, scraped a total of 10 web pages
+[2019-02-05 17:02:53.620990] TRACE: Stock: Writing Data to file.
