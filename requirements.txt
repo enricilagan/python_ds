@@ -7,3 +7,4 @@ seaborn
 tweepy
 sklearn
 logbook
+uplink==0.4.0
