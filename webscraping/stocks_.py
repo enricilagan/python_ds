@@ -25,7 +25,7 @@ def main():
     if len(from_date) > 8:
         raise ValueError
     to_date = input('Enter End Date (MM/DD/YY): ')
-    if len(from_date) > 8:
+    if len(to_date) > 8:
         raise ValueError
     app_log.trace(f'Checking for historical stocks of {user_choice}, from {from_date} to {to_date}.')
 
@@ -63,7 +63,7 @@ def main():
 
     app_log.trace(f'Writing Data to file.')
 
-    df_all[:-1].to_csv(f'{user_choice}_{datetime.now().strftime("%Y-%m-%d")}.csv', mode='w')
+    df_all[:-1].to_csv(f'{user_choice}_{datetime.now().strftime("%Y-%m-%d")}.csv', mode='w', index=False)
 
 
 # function to scrape the Stock Update table in PESOBILITY
